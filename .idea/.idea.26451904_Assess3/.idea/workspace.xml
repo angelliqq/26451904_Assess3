@@ -10,7 +10,50 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ea1447a-be5e-4ada-8c8b-fd84f51f1d64" name="Changes" comment="" />
+    <list default="true" id="9ea1447a-be5e-4ada-8c8b-fd84f51f1d64" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PacMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PacMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/DEAD ANIM.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/DEAD ANIM.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GH dead.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GH dead.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown B.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown B.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown P O.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown P O.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown P.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown P.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown SCARED.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown SCARED.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown TRANSITION.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown TRANSITION.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR B RIGHT.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR B RIGHT.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR B.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR B.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR O RIGHT.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR O RIGHT.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR O.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR O.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR P RIGHT.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR P RIGHT.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR P.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR P.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R RIGHT.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R RIGHT.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R SCARED RIGHT.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R SCARED RIGHT.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R SCARED.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R SCARED.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R TRANSITION RIGHT.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R TRANSITION RIGHT.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R TRANSITION.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R TRANSITION.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkLR R.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp B.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp B.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp O.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp O.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp P.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp P.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp R.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp R.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp SCARED.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp SCARED.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp TRANSITION.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHWalkUp TRANSITION.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/LIFE ICON.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/LIFE ICON.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PACWalkD.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PACWalkD.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PACWalkU.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PACWalkU.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PACwalk RIGHT.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PACwalk RIGHT.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PACwalkLR.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PACwalkLR.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/Pellet.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/Pellet.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PowerPellet.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PowerPellet.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/0.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/0.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/4.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/7.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/8.png.meta" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,61 +69,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000524396621953" />
-      <entry key="S5" value="1.0197926965323107" />
-      <entry key="S10" value="1.1813131928892275" />
-      <entry key="S30" value="3.0140500712394402" />
-      <entry key="S60" value="7.089189118063882" />
-      <entry key="M2" value="15.464937304955564" />
-      <entry key="M5" value="29.49579950539473" />
-      <entry key="M10" value="37.73617323182657" />
-      <entry key="M15" value="41.102697193492745" />
-      <entry key="M30" value="44.84224383915007" />
-      <entry key="H1" value="46.865804759767784" />
-      <entry key="H2" value="47.91867267524026" />
-      <entry key="H4" value="48.455727531349176" />
-      <entry key="D1" value="48.90878227457711" />
-      <entry key="W1" value="48.98695645504617" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="2.9092871084165426E-102" />
+      <entry key="S2" value="4.129967618411974E-26" />
+      <entry key="S5" value="7.029061228902969E-11" />
+      <entry key="S10" value="9.33168530778846E-6" />
+      <entry key="S30" value="0.08127480638259688" />
+      <entry key="S60" value="1.2858799444487838" />
+      <entry key="M2" value="6.638924623456241" />
+      <entry key="M5" value="30.32203332145775" />
+      <entry key="M10" value="65.46154691386815" />
+      <entry key="M15" value="89.36885139892554" />
+      <entry key="M30" value="126.395879669385" />
+      <entry key="H1" value="152.53571315146212" />
+      <entry key="H2" value="168.21698878432963" />
+      <entry key="H4" value="176.82648183357273" />
+      <entry key="D1" value="184.43014886468455" />
+      <entry key="W1" value="185.77470926187243" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="9.525078034948933E-115" />
-      <entry key="MS500" value="1.5695447712932258E-23" />
-      <entry key="S2" value="1.990474787040459E-6" />
-      <entry key="S5" value="0.0053264558521282325" />
-      <entry key="S10" value="0.08338258221636011" />
-      <entry key="S30" value="0.9117513810078577" />
-      <entry key="S60" value="2.360877253284147" />
-      <entry key="M2" value="4.454823334761273" />
-      <entry key="M5" value="7.061518493499488" />
-      <entry key="M10" value="8.366754222469398" />
-      <entry key="M15" value="8.87039656401504" />
-      <entry key="M30" value="9.413595441427393" />
-      <entry key="H1" value="9.701154853464509" />
-      <entry key="H2" value="9.849135136566824" />
-      <entry key="H4" value="9.924202964395969" />
-      <entry key="D1" value="9.987316175121004" />
-      <entry key="W1" value="9.998186771848552" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000000000000009" />
+      <entry key="S10" value="1.0000000503134434" />
+      <entry key="S30" value="1.0076527504961963" />
+      <entry key="S60" value="1.1622936897526643" />
+      <entry key="M2" value="1.8211699793445413" />
+      <entry key="M5" value="3.8601944465928195" />
+      <entry key="M10" value="6.9015026064522385" />
+      <entry key="M15" value="9.23280394854377" />
+      <entry key="M30" value="13.156584901973513" />
+      <entry key="H1" value="16.093612416170824" />
+      <entry key="H2" value="17.906185257704923" />
+      <entry key="H4" value="18.915153337052164" />
+      <entry key="D1" value="19.813668027657545" />
+      <entry key="W1" value="19.973242404293362" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.7872139843086253E-4" />
-      <entry key="MS500" value="0.178006274449634" />
-      <entry key="S2" value="0.6495906539757913" />
-      <entry key="S5" value="0.8647143656013893" />
-      <entry key="S10" value="1.1695160138567102" />
-      <entry key="S30" value="3.8261194274495063" />
-      <entry key="S60" value="9.321163077413146" />
-      <entry key="M2" value="19.785433120813412" />
-      <entry key="M5" value="36.462264749191604" />
-      <entry key="M10" value="46.04396757413689" />
-      <entry key="M15" value="49.93073440373094" />
-      <entry key="M30" value="54.23298085446076" />
-      <entry key="H1" value="56.55507948023239" />
-      <entry key="H2" value="57.761750859072194" />
-      <entry key="H4" value="58.37687226165701" />
-      <entry key="D1" value="58.89558456469725" />
-      <entry key="W1" value="58.98506971179184" />
+      <entry key="MS100" value="1.3656998762939028E-5" />
+      <entry key="MS500" value="0.10643171346861814" />
+      <entry key="S2" value="0.5711731234242726" />
+      <entry key="S5" value="0.799295016918189" />
+      <entry key="S10" value="0.894041947235453" />
+      <entry key="S30" value="1.0505777466353803" />
+      <entry key="S60" value="2.4152125800662847" />
+      <entry key="M2" value="8.415495699876702" />
+      <entry key="M5" value="34.12757279891372" />
+      <entry key="M10" value="72.30814489115374" />
+      <entry key="M15" value="98.55119454441659" />
+      <entry key="M30" value="139.51568429224557" />
+      <entry key="H1" value="168.60663662603503" />
+      <entry key="H2" value="186.11050597901075" />
+      <entry key="H4" value="195.73493309169413" />
+      <entry key="D1" value="204.2426452808367" />
+      <entry key="W1" value="205.7477829082194" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -95,28 +138,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "Feature-Visual",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Feature-Movement&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.11f1\Editor\Unity.exe" />
