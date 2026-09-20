@@ -13,15 +13,17 @@ public class PacMove : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        
+        Vector3 start =  transform.position;
+        
         path = new Vector3[]
         {
-            new Vector3(0, 0, 0),
-            new Vector3(5, 0, 0),
-            new Vector3(5, -4, 0),
-            new Vector3(0, -4, 0),
+            start + new Vector3(5, 0, 0),
+            start + new Vector3(5, -4, 0),
+            start + new Vector3(0, -4, 0),
+            start,
         };
         
-        transform.position = path[0];
         PlayMovement();
         FaceOtherDir();
     }
@@ -49,7 +51,7 @@ public class PacMove : MonoBehaviour
     {
         Vector3 nextTarget = path[index];
         Vector3 dir = nextTarget - transform.position;
-        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.z))
+        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
         {
             if (dir.x > 0)
                 animator.Play("WalkRight");
