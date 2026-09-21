@@ -11,8 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ea1447a-be5e-4ada-8c8b-fd84f51f1d64" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.26451904_Assess3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.26451904_Assess3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PacMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PacMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite.spriteatlasv2.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite.spriteatlasv2.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/DEAD ANIM.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/DEAD ANIM.aseprite.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GH dead.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GH dead.aseprite.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown B.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/GHDown B.aseprite.meta" afterDir="false" />
@@ -46,13 +47,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PACwalkLR.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PACwalkLR.aseprite.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/Pellet.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/Pellet.aseprite.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PowerPellet.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Sprites/PowerPellet.aseprite.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/0.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/0.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visual Assets/Tilemap/8.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +144,7 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Feature-Movement&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Development&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,

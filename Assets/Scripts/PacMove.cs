@@ -7,12 +7,10 @@ public class PacMove : MonoBehaviour
     private int index = 0;
     
     private Animator animator;
-    private AudioSource audioSource;
     
     void Start()
     {
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
         
         Vector3 start =  transform.position;
         
@@ -24,7 +22,6 @@ public class PacMove : MonoBehaviour
             start,
         };
         
-        PlayMovement();
         FaceOtherDir();
     }
     
@@ -66,10 +63,5 @@ public class PacMove : MonoBehaviour
                 animator.Play("WalkUp");
         }
     }
-
-    void PlayMovement()
-    {
-        if (!audioSource.isPlaying)
-            audioSource.Play();
-    }
+    
 }
