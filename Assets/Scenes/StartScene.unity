@@ -3024,7 +3024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849241607911303486, guid: f97172f6c04dcaa4db6fb8954d11dc50, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: Button 2
       objectReference: {fileID: 0}
     - target: {fileID: 8095416069695451197, guid: f97172f6c04dcaa4db6fb8954d11dc50, type: 3}
       propertyPath: m_text
@@ -9313,7 +9313,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849241607911303486, guid: f97172f6c04dcaa4db6fb8954d11dc50, type: 3}
       propertyPath: m_Name
-      value: Border
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135074538484653908, guid: f97172f6c04dcaa4db6fb8954d11dc50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135074538484653908, guid: f97172f6c04dcaa4db6fb8954d11dc50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135074538484653908, guid: f97172f6c04dcaa4db6fb8954d11dc50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 102900000, guid: c2964433d2b7ea740bebf613fb1904f6, type: 3}
+    - target: {fileID: 9135074538484653908, guid: f97172f6c04dcaa4db6fb8954d11dc50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
