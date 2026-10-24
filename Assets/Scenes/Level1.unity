@@ -18496,6 +18496,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1214233755}
   - component: {fileID: 1214233756}
+  - component: {fileID: 1214233757}
+  - component: {fileID: 1214233758}
   m_Layer: 0
   m_Name: PacStudent
   m_TagString: Untagged
@@ -18567,7 +18569,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 6
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8681292345926067826, guid: e88fbc7a4e9fac74b9abf5d15b0aa2c4, type: 3}
+  m_Sprite: {fileID: 1538377292313600057, guid: 3f622d88c9b7c1a40b8c67dbff1d7ba5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -18577,6 +18579,50 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1214233757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214233752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06ec28c4f1488f4094fda5e1c859b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PacStudentController
+  tilemap:
+  - {fileID: 1186556137}
+  - {fileID: 475796260}
+  - {fileID: 1776364671}
+  - {fileID: 1970630668}
+  pellets:
+  - {fileID: 944120501}
+  movement: {fileID: 744990895}
+  movingClip: {fileID: 8300000, guid: bb34ca0850b9c8640a1a256b124fef54, type: 3}
+  pelletClip: {fileID: 8300000, guid: 45166bdf53062b84a9f09cafeb4a8d5b, type: 3}
+--- !u!95 &1214233758
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214233752}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de70d4f98fe4278499bde15331d6fd2c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1215134273
 GameObject:
   m_ObjectHideFlags: 0
