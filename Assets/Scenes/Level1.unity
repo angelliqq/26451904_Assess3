@@ -1338,6 +1338,38 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &179735385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 179735386}
+  m_Layer: 0
+  m_Name: Pellet bottom right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &179735386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179735385}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1112089828}
+  m_Father: {fileID: 1140006424}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &188345031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,15 +1467,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1140006424}
+    m_TransformParent: {fileID: 1060462731}
     m_Modifications:
     - target: {fileID: 249759725016037814, guid: 855a98f72cc74924bb142f0392239e90, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.72313
+      value: -0.43542004
       objectReference: {fileID: 0}
     - target: {fileID: 249759725016037814, guid: 855a98f72cc74924bb142f0392239e90, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.90426
+      value: 1.6217301
       objectReference: {fileID: 0}
     - target: {fileID: 249759725016037814, guid: 855a98f72cc74924bb142f0392239e90, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13650,6 +13682,38 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1001594326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1001594327}
+  m_Layer: 0
+  m_Name: Pellet top right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1001594327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001594326}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.1555004, y: -0.15376997, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1479287232}
+  m_Father: {fileID: 1140006424}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1022468587
 GameObject:
   m_ObjectHideFlags: 0
@@ -14105,6 +14169,70 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1055283445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055283446}
+  m_Layer: 0
+  m_Name: Pellet bottom left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1055283446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055283445}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1126164015}
+  m_Father: {fileID: 1140006424}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1060462730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1060462731}
+  m_Layer: 0
+  m_Name: Pellet top-left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1060462731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060462730}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.15855, y: 2.2825298, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 944120501}
+  m_Father: {fileID: 1140006424}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1064629549
 GameObject:
   m_ObjectHideFlags: 0
@@ -14657,7 +14785,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1140006424}
+    m_TransformParent: {fileID: 179735386}
     m_Modifications:
     - target: {fileID: 249759725016037814, guid: 855a98f72cc74924bb142f0392239e90, type: 3}
       propertyPath: m_LocalScale.x
@@ -15275,7 +15403,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1140006424}
+    m_TransformParent: {fileID: 1055283446}
     m_Modifications:
     - target: {fileID: 249759725016037814, guid: 855a98f72cc74924bb142f0392239e90, type: 3}
       propertyPath: m_LocalScale.y
@@ -15638,14 +15766,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1384198945}
-  - {fileID: 944120501}
   - {fileID: 711841207}
-  - {fileID: 1479287232}
+  - {fileID: 1384198945}
   - {fileID: 1803439488}
-  - {fileID: 1126164015}
   - {fileID: 1962147286}
-  - {fileID: 1112089828}
+  - {fileID: 1060462731}
+  - {fileID: 1001594327}
+  - {fileID: 1055283446}
+  - {fileID: 179735386}
   - {fileID: 1186556135}
   - {fileID: 475796258}
   - {fileID: 1970630666}
@@ -18597,7 +18725,10 @@ MonoBehaviour:
   - {fileID: 1776364671}
   - {fileID: 1970630668}
   pellets:
-  - {fileID: 944120501}
+  - {fileID: 1060462731}
+  - {fileID: 1001594327}
+  - {fileID: 1055283446}
+  - {fileID: 179735386}
   movement: {fileID: 744990895}
   movingClip: {fileID: 8300000, guid: bb34ca0850b9c8640a1a256b124fef54, type: 3}
   pelletClip: {fileID: 8300000, guid: 45166bdf53062b84a9f09cafeb4a8d5b, type: 3}
@@ -22216,7 +22347,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1140006424}
+    m_TransformParent: {fileID: 1001594327}
     m_Modifications:
     - target: {fileID: 249759725016037814, guid: 855a98f72cc74924bb142f0392239e90, type: 3}
       propertyPath: m_LocalScale.x
@@ -22224,11 +22355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 249759725016037814, guid: 855a98f72cc74924bb142f0392239e90, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.72313
+      value: 20.567629
       objectReference: {fileID: 0}
     - target: {fileID: 249759725016037814, guid: 855a98f72cc74924bb142f0392239e90, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.90426
+      value: 4.05803
       objectReference: {fileID: 0}
     - target: {fileID: 249759725016037814, guid: 855a98f72cc74924bb142f0392239e90, type: 3}
       propertyPath: m_LocalPosition.z

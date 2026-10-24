@@ -26,61 +26,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000003603207" />
-      <entry key="MS500" value="1.0143043060298063" />
-      <entry key="S2" value="1.7920586251081825" />
-      <entry key="S5" value="3.5712051511663" />
-      <entry key="S10" value="5.626782623266713" />
-      <entry key="S30" value="9.095593709944595" />
-      <entry key="S60" value="11.308795479710746" />
-      <entry key="M2" value="13.856824254360788" />
-      <entry key="M5" value="19.10503386524235" />
-      <entry key="M10" value="39.30033455347772" />
-      <entry key="M15" value="73.99003834400112" />
-      <entry key="M30" value="192.71160998834927" />
-      <entry key="H1" value="374.59070881412225" />
-      <entry key="H2" value="560.4332919770907" />
-      <entry key="H4" value="700.1484324202686" />
-      <entry key="D1" value="852.5978831069825" />
-      <entry key="W1" value="882.8306197806895" />
+      <entry key="MS100" value="1.000000057176597" />
+      <entry key="MS500" value="1.0355994805398012" />
+      <entry key="S2" value="1.4355965979931382" />
+      <entry key="S5" value="1.8236185513560101" />
+      <entry key="S10" value="2.459301619814315" />
+      <entry key="S30" value="4.288898827324431" />
+      <entry key="S60" value="5.365397261124778" />
+      <entry key="M2" value="6.095738438992862" />
+      <entry key="M5" value="7.024727118262193" />
+      <entry key="M10" value="15.33535271296211" />
+      <entry key="M15" value="32.834888087041676" />
+      <entry key="M30" value="90.88184707002017" />
+      <entry key="H1" value="176.47998120025682" />
+      <entry key="H2" value="337.4836005042974" />
+      <entry key="H4" value="599.5990674434121" />
+      <entry key="D1" value="1142.1637545025078" />
+      <entry key="W1" value="1293.4358732176258" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="4.395157154575623E-29" />
-      <entry key="MS500" value="2.131056095261038E-6" />
-      <entry key="S2" value="0.038207508677953514" />
-      <entry key="S5" value="0.27093715628953763" />
-      <entry key="S10" value="0.5228908428967484" />
-      <entry key="S30" value="0.9398346722036828" />
-      <entry key="S60" value="1.3164040022399226" />
-      <entry key="M2" value="2.0373552402849517" />
-      <entry key="M5" value="4.9723749405260325" />
-      <entry key="M10" value="9.944373542243849" />
-      <entry key="M15" value="14.73647457641525" />
-      <entry key="M30" value="27.05115311085531" />
-      <entry key="H1" value="43.63836490069012" />
-      <entry key="H2" value="60.08364132642582" />
-      <entry key="H4" value="72.40189369828536" />
-      <entry key="D1" value="85.86686538677475" />
-      <entry key="W1" value="88.5423360836086" />
+      <entry key="MS100" value="1.2154326714572793E-63" />
+      <entry key="MS500" value="2.616538552934171E-13" />
+      <entry key="S2" value="8.756790979557572E-4" />
+      <entry key="S5" value="0.09978243936522645" />
+      <entry key="S10" value="0.5975810683499694" />
+      <entry key="S30" value="2.334457172839919" />
+      <entry key="S60" value="3.3900900101190503" />
+      <entry key="M2" value="4.109198620710222" />
+      <entry key="M5" value="4.906821550794468" />
+      <entry key="M10" value="8.62959151415637" />
+      <entry key="M15" value="14.863947019283026" />
+      <entry key="M30" value="32.893402796465004" />
+      <entry key="H1" value="54.779139593345086" />
+      <entry key="H2" value="81.48777318040251" />
+      <entry key="H4" value="114.52913813544411" />
+      <entry key="D1" value="174.94541091012283" />
+      <entry key="W1" value="191.0798778326839" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.580610451913949E-4" />
-      <entry key="MS500" value="0.1951783637971907" />
-      <entry key="S2" value="1.2791499379444873" />
-      <entry key="S5" value="3.368805478237001" />
-      <entry key="S10" value="5.775371177560033" />
-      <entry key="S30" value="9.8192571115893" />
-      <entry key="S60" value="12.477547008160744" />
-      <entry key="M2" value="15.79612520746555" />
-      <entry key="M5" value="24.017655737194982" />
-      <entry key="M10" value="49.19487816196228" />
-      <entry key="M15" value="88.67631244429404" />
-      <entry key="M30" value="219.71110205277776" />
-      <entry key="H1" value="418.1827987216352" />
-      <entry key="H2" value="620.4830268046533" />
-      <entry key="H4" value="772.5292336475881" />
-      <entry key="D1" value="938.4604683055811" />
-      <entry key="W1" value="971.3723225563344" />
+      <entry key="MS100" value="1.2208470607294038E-4" />
+      <entry key="MS500" value="0.19195527732531562" />
+      <entry key="S2" value="1.0440925385114546" />
+      <entry key="S5" value="1.7080511313737279" />
+      <entry key="S10" value="2.8672042461904135" />
+      <entry key="S30" value="6.470127021589154" />
+      <entry key="S60" value="8.651587779427572" />
+      <entry key="M2" value="10.143664655333522" />
+      <entry key="M5" value="11.903078112108942" />
+      <entry key="M10" value="23.93910856072299" />
+      <entry key="M15" value="47.66667996176791" />
+      <entry key="M30" value="123.73572941813005" />
+      <entry key="H1" value="231.2237635400426" />
+      <entry key="H2" value="418.9419056208483" />
+      <entry key="H4" value="714.1048694660824" />
+      <entry key="D1" value="1317.102419407794" />
+      <entry key="W1" value="1484.5146747425106" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -107,7 +107,7 @@
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "Feature-GameUI",
+    "git-widget-placeholder": "Feature-PacCherryMovement",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
