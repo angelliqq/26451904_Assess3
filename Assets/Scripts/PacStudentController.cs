@@ -75,9 +75,9 @@ public class PacStudentController : MonoBehaviour
             {
                 currentInput = lastInput;
             }
-            else
+            else if (!TryMove(currentInput))
             {
-                TryMove(currentInput);
+                StopSound();
             }
         }
     }
@@ -120,7 +120,7 @@ public class PacStudentController : MonoBehaviour
         bool eat = pelletsByCell.TryGetValue(next, out GameObject pellet) && pellet != null;
         
         ApplyFacing(dir);
-        //sfx
+        PlaySound(eat);
         return true;
     }
 
@@ -178,5 +178,25 @@ public class PacStudentController : MonoBehaviour
             case Direction.Left: animator.Play("WalkLeft"); break;
             case Direction.Right: animator.Play("WalkRight"); break;
         }
+    }
+    
+    // sfx
+    void PlaySound(bool eating)
+    {
+        if (movement == null) return;
+        AudioClip moving = eating ? pelletClip : movingClip;
+        movement.loop = true;
+
+        if (movement.clip != moving || !movement.isPlaying)
+        {
+            movement.clip = moving;
+            movement.Play();
+        }
+    }
+
+    // stopping sfx
+    void StopSound()
+    {
+        if (movement == null && movement.isPlaying) movement.Stop();
     }
 }
