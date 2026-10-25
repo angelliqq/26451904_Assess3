@@ -26,6 +26,8 @@ public class PacStudentController : MonoBehaviour
     [SerializeField] private AudioSource movement;
     [SerializeField] private AudioClip movingClip;
     [SerializeField] private AudioClip pelletClip;
+
+    [SerializeField] private ParticleSystem trail;
     
     Direction lastInput =  Direction.None;
     Direction currentInput = Direction.None;
@@ -79,6 +81,12 @@ public class PacStudentController : MonoBehaviour
             {
                 StopSound();
             }
+        }
+
+        if (trail == null)
+        {
+            if (isLerping && !trail.isEmitting) trail.Play();
+            else if (!isLerping && trail.isEmitting) trail.Stop();
         }
     }
 
