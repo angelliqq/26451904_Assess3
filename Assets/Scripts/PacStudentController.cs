@@ -17,6 +17,11 @@ public class PacStudentController : MonoBehaviour
     [SerializeField] private Tilemap[] tilemap;
     [SerializeField] private Transform[] pellets;
     
+    [SerializeField] private Transform TPRight;
+    [SerializeField] private Transform TPLeft;
+
+    private Vector2Int leftEnd;
+    private Vector2Int rightEnd;
     
     private float moveSpeed = 5f;
     
@@ -57,6 +62,10 @@ public class PacStudentController : MonoBehaviour
         transform.position = CellToWorld(currentTile);
         targetPosition = transform.position;
         
+        // teleporters
+        leftEnd = WorldToCell(TPLeft.position);
+        rightEnd = WorldToCell(TPRight.position);
+        
     }
     
     void Update()
@@ -72,6 +81,7 @@ public class PacStudentController : MonoBehaviour
                 transform.position = targetPosition;
                 currentTile = targetTile;
                 isLerping = false;
+                CheckTeleport();
             }
         }
 
@@ -148,6 +158,7 @@ public class PacStudentController : MonoBehaviour
     // checks if tile is walkable
     bool IsWalkable(Vector2Int pos)
     {
+        if (pos.x < leftEnd.x || pos.x > rightEnd.x) return false;
         Vector3 world = grid.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
         
         foreach (Tilemap map in tilemap)
@@ -253,4 +264,20 @@ public class PacStudentController : MonoBehaviour
         if (bump != null && bumpClip != null) bump.PlayOneShot(bumpClip);
     }
     
+    // teleport
+    void CheckTeleport()
+    {
+        if (currentTile.x == leftEnd.x) Teleport(new  Vector2Int(rightEnd.x, currentTile.y));
+        else if (currentTile.x == rightEnd.x) Teleport(new  Vector2Int(leftEnd.x, currentTile.y));
+    }
+
+    // teleport
+    void Teleport(Vector2Int destination)
+    {
+        currentTile = destination;
+        targetTile = destination;
+        transform.position = CellToWorld(destination);
+        targetPosition = transform.position;
+        if (trail != null) trail.Clear();
+    }
 }
