@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using TMPro;
 
 public class PacStudentController : MonoBehaviour
 {
@@ -49,6 +50,10 @@ public class PacStudentController : MonoBehaviour
     private Grid grid;
     readonly Dictionary<Vector2Int, GameObject> pelletsByCell = new Dictionary<Vector2Int, GameObject>();
     
+    // pellet stuff
+    [SerializeField] private TMP_Text scoreTxt;
+    private int score;
+    
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -65,7 +70,9 @@ public class PacStudentController : MonoBehaviour
         // teleporters
         leftEnd = WorldToCell(TPLeft.position);
         rightEnd = WorldToCell(TPRight.position);
-        
+
+        UpdateScore();
+
     }
     
     void Update()
@@ -81,6 +88,7 @@ public class PacStudentController : MonoBehaviour
                 transform.position = targetPosition;
                 currentTile = targetTile;
                 isLerping = false;
+                EatPellet();
                 CheckTeleport();
             }
         }
@@ -120,7 +128,7 @@ public class PacStudentController : MonoBehaviour
 
                 foreach (Transform t in pellet.GetComponentsInChildren<Transform>())
                 {
-                    if (t == pellet && pellet.childCount > 0) continue;
+                    if (t.childCount > 0) continue;
                     pelletsByCell[WorldToCell(t.position)] = t.gameObject;
                 }
         }
@@ -236,19 +244,23 @@ public class PacStudentController : MonoBehaviour
         if (animator != null) animator.speed = on ?  1f : 0f;
     }
     
+    // collision stuff
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Tilemap>() == null) return;
-        if (isLerping && !IsWalkable(targetTile))
+        if (other.GetComponent<Tilemap>() == null)
         {
-            isLerping = false;
-            targetTile = currentTile;
-            transform.position = CellToWorld(currentTile);
-            StopSound();
-            SetAnimation(false);
+            if (isLerping && !IsWalkable(targetTile))
+            {
+                isLerping = false;
+                targetTile = currentTile;
+                transform.position = CellToWorld(currentTile);
+                StopSound();
+                SetAnimation(false);
+            }
         }
     }
 
+    // bump effect + sound
     void WallBump()
     {
         Vector2Int offset = GetOffSet(currentInput);
@@ -264,14 +276,14 @@ public class PacStudentController : MonoBehaviour
         if (bump != null && bumpClip != null) bump.PlayOneShot(bumpClip);
     }
     
-    // teleport
+    // checking the teleporting
     void CheckTeleport()
     {
         if (currentTile.x == leftEnd.x) Teleport(new  Vector2Int(rightEnd.x, currentTile.y));
         else if (currentTile.x == rightEnd.x) Teleport(new  Vector2Int(leftEnd.x, currentTile.y));
     }
 
-    // teleport
+    // teleport itself
     void Teleport(Vector2Int destination)
     {
         currentTile = destination;
@@ -279,5 +291,30 @@ public class PacStudentController : MonoBehaviour
         transform.position = CellToWorld(destination);
         targetPosition = transform.position;
         if (trail != null) trail.Clear();
+    }
+    
+    // addition of pellets
+    void AddScore(int points)
+    {
+        score += points;
+        UpdateScore();
+    }
+
+    void UpdateScore()
+    {
+        if (scoreTxt != null) scoreTxt.text = score.ToString("D6");
+    }
+
+    void EatPellet()
+    {
+        if (pelletsByCell.TryGetValue(currentTile, out GameObject pellet))
+        {
+            pelletsByCell.Remove(currentTile);
+            if (pellet != null)
+            {
+                Destroy(pellet);
+                AddScore(10);
+            }
+        }
     }
 }

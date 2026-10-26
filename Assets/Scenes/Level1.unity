@@ -2131,7 +2131,7 @@ GameObject:
   - component: {fileID: 238932261}
   - component: {fileID: 238932260}
   m_Layer: 5
-  m_Name: Time
+  m_Name: Score Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2176,7 +2176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 001234
+  m_text: 000000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -23929,6 +23929,7 @@ MonoBehaviour:
   bump: {fileID: 476433211}
   bumpClip: {fileID: 8300000, guid: 8c6c7223b52102f4492d8f66131660ad, type: 3}
   bumpEffect: {fileID: 476433213}
+  scoreTxt: {fileID: 238932260}
 --- !u!95 &1214233758
 Animator:
   serializedVersion: 7
