@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using TMPro;
+using System.Collections;
 
 public class PacStudentController : MonoBehaviour
 {
@@ -60,6 +61,19 @@ public class PacStudentController : MonoBehaviour
     // handle ghost / power pellet
     [SerializeField] private GhostManager ghostManager;
     
+    // --------------- new section for Ghosts: Normal state dot point
+    [SerializeField] private GameObject[] lifeIcon;
+    [SerializeField] private ParticleSystem deathEffect;
+    [SerializeField] private AudioClip deathClip;
+    [SerializeField] private string deathState = "Death";
+    [SerializeField] private float deathDuration = 1.5f;
+
+    private int lives = 3;
+    private bool isDying;
+    private Vector2Int startTile;
+    public bool IsDying => isDying;
+    
+    
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -70,6 +84,7 @@ public class PacStudentController : MonoBehaviour
         
         currentTile = WorldToCell(transform.position);
         targetTile = currentTile;
+        UpdateLives();
         transform.position = CellToWorld(currentTile);
         targetPosition = transform.position;
         
@@ -83,8 +98,8 @@ public class PacStudentController : MonoBehaviour
     
     void Update()
     {
+        if (isDying) return;
         ReadInput();
-
         if (isLerping)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
@@ -254,12 +269,19 @@ public class PacStudentController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
+        if (other.CompareTag("Ghost"))
+        {
+            if (isDying) return;
+            if (ghostManager != null && ghostManager.IsScared) return;
+            StartCoroutine(Die());
+            return;
+        }
+        
         if (other.GetComponent<CherryScore>() != null)
         {
             EatCherry(other.gameObject);
             return;
         }
-        
         
         if (other.GetComponent<Tilemap>() == null && !IsWalkable(targetTile))
         {
@@ -346,5 +368,63 @@ public class PacStudentController : MonoBehaviour
         Destroy(cherry);
         AddScore(100);
         if (bump != null && cherryClip != null) bump.PlayOneShot(cherryClip);
+    }
+    
+    // ---------------------------------- death section
+
+    IEnumerator Die()
+    {
+        isDying =  true;
+        isLerping = false;
+        
+        StopSound();
+        if (trail != null) trail.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        lives--;
+        UpdateLives();
+
+        if (deathEffect != null)
+        {
+            deathEffect.transform.position = transform.position;
+            deathEffect.Emit(8);
+        }
+        
+        if (bump != null && deathClip != null) bump.PlayOneShot(deathClip);
+
+        if (animator != null)
+        {
+            animator.speed = 1f;
+            animator.Play(deathState);
+        }
+        yield return new WaitForSeconds(deathDuration);
+        if (lives > 0) Respawn();
+    }
+
+    void UpdateLives()
+    {
+        for (int i = 0; i < lifeIcon.Length; i++)
+        {
+            if (lifeIcon[i] != null) lifeIcon[i].SetActive(i < lives);
+        }
+    }
+
+    void Respawn()
+    {
+        currentTile = startTile;
+        targetTile = startTile;
+        transform.position = CellToWorld(startTile);
+        targetPosition = transform.position;
+
+        lastInput = Direction.None;
+        currentInput = Direction.None;
+        wasMoving = false;
+
+        facing = Direction.None;
+        ApplyFacing(Direction.Right);
+        if (animator != null) animator.Update(0f);
+        SetAnimation(false);
+
+        if (ghostManager != null) ghostManager.ResetGhosts();
+        isDying = false;
     }
 }

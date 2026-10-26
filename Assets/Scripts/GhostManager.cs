@@ -24,11 +24,20 @@ public class GhostManager : MonoBehaviour
     
     private Coroutine scaredState;
     private int[] savedStates;
+
+    private Vector3[] startPositions;
+    public bool IsScared => scaredState != null;
     
     
     void Start()
     {
         if (timerObject != null) timerObject.SetActive(false);
+        
+        startPositions = new Vector3[ghosts.Length];
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            if (ghosts[i] != null) startPositions[i] = ghosts[i].transform.position;
+        }
     }
 
     public void StartScared()
@@ -116,5 +125,24 @@ public class GhostManager : MonoBehaviour
     {
         if (scaredAudio != null) scaredAudio.Stop();
         if (bgMusic != null) bgMusic.mute = false;
+    }
+
+    public void ResetGhosts()
+    {
+        if (scaredState != null)
+        {
+            StopCoroutine(scaredState);
+            scaredState = null;
+            EndScaredMusic();
+            if (timerObject != null) timerObject.SetActive(false);
+        }
+
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            if (ghosts[i] == null) continue;
+            ghosts[i].transform.position = startPositions[i];
+            ghosts[i].Rebind();
+            ghosts[i].Update(0f);
+        }
     }
 }
