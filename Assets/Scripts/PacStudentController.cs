@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
-using UnityEditor;
 
 public class PacStudentController : MonoBehaviour
 {
@@ -80,10 +79,11 @@ public class PacStudentController : MonoBehaviour
             else if (!TryMove(currentInput))
             {
                 StopSound();
+                SetAnimation(false);
             }
         }
 
-        if (trail == null)
+        if (trail != null)
         {
             if (isLerping && !trail.isEmitting) trail.Play();
             else if (!isLerping && trail.isEmitting) trail.Stop();
@@ -128,21 +128,20 @@ public class PacStudentController : MonoBehaviour
         bool eat = pelletsByCell.TryGetValue(next, out GameObject pellet) && pellet != null;
         
         ApplyFacing(dir);
+        SetAnimation(true);
         PlaySound(eat);
         return true;
     }
 
-    // walk
+    // checks if tile is walkable
     bool IsWalkable(Vector2Int pos)
     {
         Vector3 world = grid.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
         
         foreach (Tilemap map in tilemap)
         {
-            if (map != null) continue;
-
-            TileBase tile = map.GetTile(map.WorldToCell(world));
-            if (tile != null && tile.name != "0") return false;
+            if (map == null) continue;
+            if (map.GetColliderType(map.WorldToCell(world)) != Tile.ColliderType.None) return false;
         }
 
         return true;
@@ -205,6 +204,25 @@ public class PacStudentController : MonoBehaviour
     // stopping sfx
     void StopSound()
     {
-        if (movement == null && movement.isPlaying) movement.Stop();
+        if (movement != null && movement.isPlaying) movement.Stop();
+    }
+    
+    // pausing animation
+    void SetAnimation(bool on)
+    {
+        if (animator != null) animator.speed = on ?  1f : 0f;
+    }
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.GetComponent<Tilemap>() == null) return;
+        if (isLerping && !IsWalkable(targetTile))
+        {
+            isLerping = false;
+            targetTile = currentTile;
+            transform.position = CellToWorld(currentTile);
+            StopSound();
+            SetAnimation(false);
+        }
     }
 }
