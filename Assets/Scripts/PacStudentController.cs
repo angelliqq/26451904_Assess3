@@ -57,6 +57,9 @@ public class PacStudentController : MonoBehaviour
     //cherry
     [SerializeField] private AudioClip cherryClip;
     
+    // handle ghost / power pellet
+    [SerializeField] private GhostManager ghostManager;
+    
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -313,15 +316,27 @@ public class PacStudentController : MonoBehaviour
         if (scoreTxt != null) scoreTxt.text = score.ToString("D6");
     }
 
+    // EAT PELLET
     void EatPellet()
     {
         if (pelletsByCell.TryGetValue(currentTile, out GameObject pellet))
         {
             pelletsByCell.Remove(currentTile);
+            
             if (pellet != null)
             {
+                bool isPower = pellet.name.StartsWith("PowerPellet");
                 Destroy(pellet);
-                AddScore(10);
+
+                if (isPower)
+                {
+                    AddScore(50);
+                    if (ghostManager != null) ghostManager.StartScared();
+                }
+                else
+                {
+                    AddScore(10);
+                }
             }
         }
     }
