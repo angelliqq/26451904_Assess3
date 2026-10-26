@@ -36,6 +36,11 @@ public class PacStudentController : MonoBehaviour
     Vector2 targetPosition;
     private bool isLerping;
 
+    [SerializeField] private AudioSource bump;
+    [SerializeField] private AudioClip bumpClip;
+    [SerializeField] private ParticleSystem bumpEffect;
+    private bool wasMoving;
+
     private Grid grid;
     readonly Dictionary<Vector2Int, GameObject> pelletsByCell = new Dictionary<Vector2Int, GameObject>();
     
@@ -78,6 +83,11 @@ public class PacStudentController : MonoBehaviour
             }
             else if (!TryMove(currentInput))
             {
+                if (wasMoving)
+                {
+                    wasMoving = false;
+                    WallBump();
+                }
                 StopSound();
                 SetAnimation(false);
             }
@@ -124,6 +134,8 @@ public class PacStudentController : MonoBehaviour
         targetTile = next;
         targetPosition = CellToWorld(next);
         isLerping = true;
+        wasMoving = true;
+        if (bumpEffect != null) bumpEffect.Clear();
 
         bool eat = pelletsByCell.TryGetValue(next, out GameObject pellet) && pellet != null;
         
@@ -225,4 +237,20 @@ public class PacStudentController : MonoBehaviour
             SetAnimation(false);
         }
     }
+
+    void WallBump()
+    {
+        Vector2Int offset = GetOffSet(currentInput);
+        Vector2 halfSize = grid.cellSize * 0.5f;
+        Vector2 point = CellToWorld(currentTile) + new Vector2(offset.x * halfSize.x,  offset.y * halfSize.y);
+
+        if (bumpEffect != null)
+        {
+            bumpEffect.transform.position = point;
+            bumpEffect.Emit(8);
+        }
+
+        if (bump != null && bumpClip != null) bump.PlayOneShot(bumpClip);
+    }
+    
 }
