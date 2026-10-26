@@ -54,6 +54,9 @@ public class PacStudentController : MonoBehaviour
     [SerializeField] private TMP_Text scoreTxt;
     private int score;
     
+    //cherry
+    [SerializeField] private AudioClip cherryClip;
+    
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -247,16 +250,21 @@ public class PacStudentController : MonoBehaviour
     // collision stuff
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Tilemap>() == null)
+
+        if (other.GetComponent<CherryScore>() != null)
         {
-            if (isLerping && !IsWalkable(targetTile))
-            {
-                isLerping = false;
-                targetTile = currentTile;
-                transform.position = CellToWorld(currentTile);
-                StopSound();
-                SetAnimation(false);
-            }
+            EatCherry(other.gameObject);
+            return;
+        }
+        
+        
+        if (other.GetComponent<Tilemap>() == null && !IsWalkable(targetTile))
+        {
+            isLerping = false;
+            targetTile = currentTile;
+            transform.position = CellToWorld(currentTile);
+            StopSound();
+            SetAnimation(false);
         }
     }
 
@@ -316,5 +324,12 @@ public class PacStudentController : MonoBehaviour
                 AddScore(10);
             }
         }
+    }
+
+    void EatCherry(GameObject cherry)
+    {
+        Destroy(cherry);
+        AddScore(100);
+        if (bump != null && cherryClip != null) bump.PlayOneShot(cherryClip);
     }
 }

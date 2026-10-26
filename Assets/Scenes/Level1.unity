@@ -23930,6 +23930,7 @@ MonoBehaviour:
   bumpClip: {fileID: 8300000, guid: 8c6c7223b52102f4492d8f66131660ad, type: 3}
   bumpEffect: {fileID: 476433213}
   scoreTxt: {fileID: 238932260}
+  cherryClip: {fileID: 8300000, guid: 0fe2d8de01a88c64d890a207c6684f6d, type: 3}
 --- !u!95 &1214233758
 Animator:
   serializedVersion: 7
