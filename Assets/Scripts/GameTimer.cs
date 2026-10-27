@@ -35,6 +35,8 @@ public class GameTimer : MonoBehaviour
     [SerializeField] private TMP_Text stopwatch;
     private float elapsedTime;
     private bool running;
+    
+    public float Elapsed => elapsedTime;
 
     // --------------------------------- Nothing is active
     void Awake()
@@ -137,5 +139,11 @@ public class GameTimer : MonoBehaviour
         int seconds = (int)(elapsedTime % 60f);
         int centiseconds = (int)((elapsedTime * 100f) % 100f);
         stopwatch.text = $"{minutes:00}:{seconds:00}:{centiseconds:00}";
+    }
+
+    // --------------------------------- stops timer
+    public void StopTimer()
+    {
+        running = false;
     }
 }

@@ -711,6 +711,57 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &45537980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 45537982}
+  - component: {fileID: 45537981}
+  m_Layer: 0
+  m_Name: GameOverManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &45537981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45537980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b86e5e20011be4ab69963886776427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOver
+  panel: {fileID: 660251839}
+  gameOverTxt: {fileID: 660251839}
+  pacStudent: {fileID: 1214233757}
+  gameTimer: {fileID: 1544764093}
+  ghostBehaviour: []
+  button:
+  - {fileID: 1406557467}
+--- !u!4 &45537982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45537980}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.57907, y: -14.83589, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &50547351
 GameObject:
   m_ObjectHideFlags: 0
@@ -24568,6 +24619,7 @@ MonoBehaviour:
   - {fileID: 179735386}
   TPRight: {fileID: 2114951637}
   TPLeft: {fileID: 450164903}
+  moveSpeed: 10
   movement: {fileID: 1214233759}
   movingClip: {fileID: 8300000, guid: bb34ca0850b9c8640a1a256b124fef54, type: 3}
   pelletClip: {fileID: 8300000, guid: 45166bdf53062b84a9f09cafeb4a8d5b, type: 3}
@@ -24586,6 +24638,7 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: c15d95b068a5e744c8421c13dd7f6d2d, type: 3}
   deathState: Death
   deathDuration: 1.5
+  gameOver: {fileID: 45537981}
 --- !u!95 &1214233758
 Animator:
   serializedVersion: 7
@@ -45359,8 +45412,8 @@ RectTransform:
   - {fileID: 50547352}
   - {fileID: 1269593657}
   - {fileID: 1406557466}
-  - {fileID: 604832028}
   - {fileID: 660251840}
+  - {fileID: 604832028}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -45872,3 +45925,4 @@ SceneRoots:
   - {fileID: 2114951637}
   - {fileID: 1155824895}
   - {fileID: 1544764094}
+  - {fileID: 45537982}

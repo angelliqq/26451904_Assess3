@@ -31,7 +31,7 @@ public class PacStudentController : MonoBehaviour
     
     
     // --------------------------------- pacstudent speed
-    private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f;
     
     
     // --------------------------------- pacstudent walk cycle
@@ -96,6 +96,10 @@ public class PacStudentController : MonoBehaviour
     private bool isDying;
     private Vector2Int startTile;
     public bool IsDying => isDying;
+    
+    // --------------------------------- game over section
+    [SerializeField] private GameOver gameOver;
+    public int Score => score;
     
     
     // --------------------------------- start
@@ -410,6 +414,9 @@ public class PacStudentController : MonoBehaviour
                     AddScore(10);
                 }
             }
+            Debug.Log("pellets left: " + pelletsByCell.Count);
+            // if all pellets are eaten, finish game
+            if (pelletsByCell.Count == 0 && gameOver != null) gameOver.EndGame();
         }
     }
 
@@ -422,7 +429,6 @@ public class PacStudentController : MonoBehaviour
     }
     
     // --------------------------------- death section
-
     IEnumerator Die()
     {
         isDying =  true;
@@ -449,6 +455,7 @@ public class PacStudentController : MonoBehaviour
         }
         yield return new WaitForSeconds(deathDuration);
         if (lives > 0) Respawn();
+        else if (gameOver != null) gameOver.EndGame();
     }
 
     // --------------------------------- life icon update
@@ -479,5 +486,15 @@ public class PacStudentController : MonoBehaviour
 
         if (ghostManager != null) ghostManager.ResetGhosts();
         isDying = false;
+    }
+
+    // --------------------------------- freezes whole game
+    public void Freeze()
+    {
+        isLerping = false;
+        StopSound();
+        SetAnimation(false);
+        if (trail != null) trail.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        enabled = false;
     }
 }
