@@ -299,6 +299,8 @@ public class PacStudentController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
+        if (!enabled) return;
+        
         // ghost scared states
         if (other.CompareTag("Ghost"))
         {
