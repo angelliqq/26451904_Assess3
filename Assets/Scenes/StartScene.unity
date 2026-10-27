@@ -736,6 +736,52 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &142091899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 142091901}
+  - component: {fileID: 142091900}
+  m_Layer: 0
+  m_Name: HighScore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &142091900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142091899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d71796d5b4911a4b87e45d8d52db8f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighScore
+  scoreTxt: {fileID: 1015618229}
+  timerTxt: {fileID: 1188350631}
+--- !u!4 &142091901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142091899}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.25054, y: 6.50089, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &149983889
 GameObject:
   m_ObjectHideFlags: 0
@@ -4936,6 +4982,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980070257}
   m_CullTransparentMesh: 1
+--- !u!114 &1015618229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4326211921555417313, guid: f97172f6c04dcaa4db6fb8954d11dc50, type: 3}
+  m_PrefabInstance: {fileID: 5243660610555724280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1027051240
 GameObject:
   m_ObjectHideFlags: 0
@@ -5744,6 +5801,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185250849}
   m_CullTransparentMesh: 1
+--- !u!114 &1188350631 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8022721117276158094, guid: f97172f6c04dcaa4db6fb8954d11dc50, type: 3}
+  m_PrefabInstance: {fileID: 5243660610555724280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1234564303
 GameObject:
   m_ObjectHideFlags: 0
@@ -9428,3 +9496,4 @@ SceneRoots:
   - {fileID: 195840066}
   - {fileID: 218751119}
   - {fileID: 1950465057}
+  - {fileID: 142091901}
