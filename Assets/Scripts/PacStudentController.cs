@@ -414,7 +414,6 @@ public class PacStudentController : MonoBehaviour
                     AddScore(10);
                 }
             }
-            Debug.Log("pellets left: " + pelletsByCell.Count);
             // if all pellets are eaten, finish game
             if (pelletsByCell.Count == 0 && gameOver != null) gameOver.EndGame();
         }
