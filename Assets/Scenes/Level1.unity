@@ -34292,6 +34292,7 @@ MonoBehaviour:
   bgClip: {fileID: 8300000, guid: 5e88a6cd8fe5e06428d466559615f841, type: 3}
   pacStudent: {fileID: 1214233757}
   ghostBehaviour: []
+  stopwatch: {fileID: 1815614309}
 --- !u!4 &1544764094
 Transform:
   m_ObjectHideFlags: 0

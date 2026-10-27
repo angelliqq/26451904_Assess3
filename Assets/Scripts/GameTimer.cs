@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using System.Collections;
@@ -29,6 +30,11 @@ public class GameTimer : MonoBehaviour
     
     public bool RoundStarted { get; private set; }
     public event System.Action RoundBegins;
+    
+    // --------------------------------- Stopwatch settings
+    [SerializeField] private TMP_Text stopwatch;
+    private float elapsedTime;
+    private bool running;
 
     // --------------------------------- Nothing is active
     void Awake()
@@ -50,12 +56,24 @@ public class GameTimer : MonoBehaviour
         // UI is disabled
         if (countdownTxt != null) countdownTxt.gameObject.SetActive(false);
         if (panel != null) panel.SetActive(false);
+        
+        // stopwatch on default
+        elapsedTime = 0f;
+        UpdateTimer();
     }
     
     // --------------------------------- Starting the countdown
     void Start()
     {
         StartCoroutine(Countdown());
+    }
+
+    // --------------------------------- Time is elapsed during gameplay
+    private void Update()
+    {
+        if (!running) return;
+        elapsedTime += Time.deltaTime;
+        UpdateTimer();
     }
 
     // --------------------------------- Countdown function
@@ -108,5 +126,16 @@ public class GameTimer : MonoBehaviour
         
         RoundStarted = true;
         RoundBegins?.Invoke();
+        running = true;
+    }
+
+    // --------------------------------- adding elapsed time thru numbers
+    void UpdateTimer()
+    {
+        if (stopwatch == null) return;
+        int minutes = (int)(elapsedTime / 60f);
+        int seconds = (int)(elapsedTime % 60f);
+        int centiseconds = (int)((elapsedTime * 100f) % 100f);
+        stopwatch.text = $"{minutes:00}:{seconds:00}:{centiseconds:00}";
     }
 }
