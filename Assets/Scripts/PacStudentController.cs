@@ -7,6 +7,7 @@ using System.Collections;
 public class PacStudentController : MonoBehaviour
 {
 
+    // --------------------------------- directions enum
     enum Direction
     {
         None,
@@ -16,64 +17,88 @@ public class PacStudentController : MonoBehaviour
         Right,
     }
     
+    // --------------------------------- timemap + pellet allocation
     [SerializeField] private Tilemap[] tilemap;
     [SerializeField] private Transform[] pellets;
     
+    
+    // --------------------------------- teleporter stuff!
     [SerializeField] private Transform TPRight;
     [SerializeField] private Transform TPLeft;
 
     private Vector2Int leftEnd;
     private Vector2Int rightEnd;
     
+    
+    // --------------------------------- pacstudent speed
     private float moveSpeed = 5f;
     
+    
+    // --------------------------------- pacstudent walk cycle
     private Animator animator;
 
+    
+    // --------------------------------- pacstudent audio
     [SerializeField] private AudioSource movement;
     [SerializeField] private AudioClip movingClip;
     [SerializeField] private AudioClip pelletClip;
 
+    
+    // --------------------------------- walking trail
     [SerializeField] private ParticleSystem trail;
     
+    
+    // --------------------------------- movement mechanics
     Direction lastInput =  Direction.None;
     Direction currentInput = Direction.None;
 
+    
+    // --------------------------------- tile places + lerping (Movement mechanics)
     private Vector2Int currentTile;
     private Vector2Int targetTile;
     Vector2 targetPosition;
     private bool isLerping;
 
+    
+    // --------------------------------- collision sounds
     [SerializeField] private AudioSource bump;
     [SerializeField] private AudioClip bumpClip;
     [SerializeField] private ParticleSystem bumpEffect;
     private bool wasMoving;
 
+    
+    // --------------------------------- Division
     private Grid grid;
     readonly Dictionary<Vector2Int, GameObject> pelletsByCell = new Dictionary<Vector2Int, GameObject>();
     
-    // pellet stuff
+    
+    // --------------------------------- General score
     [SerializeField] private TMP_Text scoreTxt;
     private int score;
     
-    //cherry
+    
+    // --------------------------------- Eating a cherry
     [SerializeField] private AudioClip cherryClip;
     
-    // handle ghost / power pellet
+    
+    // --------------------------------- Handles all the ghost stuff + power pellet function
     [SerializeField] private GhostManager ghostManager;
     
-    // --------------- new section for Ghosts: Normal state dot point
+    
+    // --------------------------------- Player icon + effect + pacstudent dead
     [SerializeField] private GameObject[] lifeIcon;
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private AudioClip deathClip;
     [SerializeField] private string deathState = "Death";
     [SerializeField] private float deathDuration = 1.5f;
-
+    
     private int lives = 3;
     private bool isDying;
     private Vector2Int startTile;
     public bool IsDying => isDying;
     
     
+    // --------------------------------- start
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -96,6 +121,7 @@ public class PacStudentController : MonoBehaviour
 
     }
     
+    // --------------------------------- Update // gameplay
     void Update()
     {
         if (isDying) return;
@@ -139,6 +165,7 @@ public class PacStudentController : MonoBehaviour
         }
     }
 
+    // --------------------------------- Handle for all the pellets
     void PelletLookup()
     {
         pelletsByCell.Clear();
@@ -155,6 +182,7 @@ public class PacStudentController : MonoBehaviour
         }
     }
 
+    // --------------------------------- reading player input
     void ReadInput()
     {
         if (Input.GetKeyDown(KeyCode.W)) lastInput = Direction.Up;
@@ -163,6 +191,7 @@ public class PacStudentController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D)) lastInput = Direction.Right;
     }
 
+    // --------------------------------- Handles movement w the grid
     bool TryMove(Direction dir)
     {
         if (dir == Direction.None) return false;
@@ -184,7 +213,7 @@ public class PacStudentController : MonoBehaviour
         return true;
     }
 
-    // checks if tile is walkable
+    // --------------------------------- checks if tile is walkable
     bool IsWalkable(Vector2Int pos)
     {
         if (pos.x < leftEnd.x || pos.x > rightEnd.x) return false;
@@ -199,6 +228,7 @@ public class PacStudentController : MonoBehaviour
         return true;
     }
 
+    // --------------------------------- Cell stuff for the movement function + handles grid for tilemap
     Vector2Int WorldToCell(Vector2 worldPos)
     {
         Vector3Int cell = grid.WorldToCell(worldPos);
@@ -222,9 +252,9 @@ public class PacStudentController : MonoBehaviour
         return Vector2Int.zero;
     }
     
-    
     Direction facing = Direction.None;
 
+    // --------------------------------- Animations depending on player input
     void ApplyFacing(Direction dir)
     {
         if (animator == null || dir == facing) return;
@@ -239,7 +269,7 @@ public class PacStudentController : MonoBehaviour
         }
     }
     
-    // sfx
+    // --------------------------------- Movement + pellet eating sounds
     void PlaySound(bool eating)
     {
         if (movement == null) return;
@@ -253,36 +283,53 @@ public class PacStudentController : MonoBehaviour
         }
     }
 
-    // stopping sfx
+    // --------------------------------- Stops movement sound if player collides
     void StopSound()
     {
         if (movement != null && movement.isPlaying) movement.Stop();
     }
     
-    // pausing animation
+    // --------------------------------- pausing animation
     void SetAnimation(bool on)
     {
         if (animator != null) animator.speed = on ?  1f : 0f;
     }
     
-    // collision stuff
+    // --------------------------------- Actually handles collisions
     void OnTriggerEnter2D(Collider2D other)
     {
 
+        // ghost scared states
         if (other.CompareTag("Ghost"))
         {
             if (isDying) return;
-            if (ghostManager != null && ghostManager.IsScared) return;
+            
+            Animator ghostAnimator  = other.GetComponentInParent<Animator>();
+
+            if (ghostManager != null && ghostManager != null)
+            {
+                if (ghostManager.IsGhostDead(ghostAnimator)) return;
+
+                if (ghostManager.IsScared)
+                {
+                    ghostManager.EatGhost(ghostAnimator);
+                    AddScore(300);
+                    return;
+                }
+            }
+
             StartCoroutine(Die());
             return;
         }
         
+        // replacement for cherry tag
         if (other.GetComponent<CherryScore>() != null)
         {
             EatCherry(other.gameObject);
             return;
         }
         
+        // wall collision
         if (other.GetComponent<Tilemap>() == null && !IsWalkable(targetTile))
         {
             isLerping = false;
@@ -293,7 +340,7 @@ public class PacStudentController : MonoBehaviour
         }
     }
 
-    // bump effect + sound
+    // --------------------------------- Bump effect + sound
     void WallBump()
     {
         Vector2Int offset = GetOffSet(currentInput);
@@ -309,14 +356,14 @@ public class PacStudentController : MonoBehaviour
         if (bump != null && bumpClip != null) bump.PlayOneShot(bumpClip);
     }
     
-    // checking the teleporting
+    // --------------------------------- Checks if the player lands on teleport
     void CheckTeleport()
     {
         if (currentTile.x == leftEnd.x) Teleport(new  Vector2Int(rightEnd.x, currentTile.y));
         else if (currentTile.x == rightEnd.x) Teleport(new  Vector2Int(leftEnd.x, currentTile.y));
     }
 
-    // teleport itself
+    // --------------------------------- teleport function
     void Teleport(Vector2Int destination)
     {
         currentTile = destination;
@@ -326,19 +373,20 @@ public class PacStudentController : MonoBehaviour
         if (trail != null) trail.Clear();
     }
     
-    // addition of pellets
+    // --------------------------------- Overall score handling system
     void AddScore(int points)
     {
         score += points;
         UpdateScore();
     }
 
+    // --------------------------------- Updates score into the 6 digits
     void UpdateScore()
     {
         if (scoreTxt != null) scoreTxt.text = score.ToString("D6");
     }
 
-    // EAT PELLET
+    // --------------------------------- Eat pellet functions
     void EatPellet()
     {
         if (pelletsByCell.TryGetValue(currentTile, out GameObject pellet))
@@ -363,6 +411,7 @@ public class PacStudentController : MonoBehaviour
         }
     }
 
+    // --------------------------------- Eats cherry
     void EatCherry(GameObject cherry)
     {
         Destroy(cherry);
@@ -370,7 +419,7 @@ public class PacStudentController : MonoBehaviour
         if (bump != null && cherryClip != null) bump.PlayOneShot(cherryClip);
     }
     
-    // ---------------------------------- death section
+    // --------------------------------- death section
 
     IEnumerator Die()
     {
@@ -400,6 +449,7 @@ public class PacStudentController : MonoBehaviour
         if (lives > 0) Respawn();
     }
 
+    // --------------------------------- life icon update
     void UpdateLives()
     {
         for (int i = 0; i < lifeIcon.Length; i++)
@@ -408,6 +458,7 @@ public class PacStudentController : MonoBehaviour
         }
     }
 
+    // --------------------------------- Respawn mechanic for pacstudent
     void Respawn()
     {
         currentTile = startTile;

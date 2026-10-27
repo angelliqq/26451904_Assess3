@@ -16177,8 +16177,11 @@ MonoBehaviour:
   bgMusic: {fileID: 744990895}
   scaredAudio: {fileID: 773723590}
   scaredMusic: {fileID: 8300000, guid: 3fc58a736fdd0f7468ed228328832275, type: 3}
+  deadMusic: {fileID: 8300000, guid: 67a305ea57369c1439e3d9a9a785a58b, type: 3}
+  ghostEatClip: {fileID: 8300000, guid: 620c37397eecd78438fcc4aeca1de063, type: 3}
   scaredTime: 10
   recoveryTime: 3
+  deadTime: 3
 --- !u!1 &782830383
 GameObject:
   m_ObjectHideFlags: 0
