@@ -31,7 +31,7 @@ public class PacStudentController : MonoBehaviour
     
     
     // --------------------------------- pacstudent speed
-    [SerializeField] private float moveSpeed = 5f;
+    public static float moveSpeed = 5f;
     
     
     // --------------------------------- pacstudent walk cycle
@@ -100,6 +100,8 @@ public class PacStudentController : MonoBehaviour
     // --------------------------------- game over section
     [SerializeField] private GameOver gameOver;
     public int Score => score;
+
+    public float MoveSpeed = moveSpeed;
     
     
     // --------------------------------- start
