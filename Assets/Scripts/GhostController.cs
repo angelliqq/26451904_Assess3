@@ -311,7 +311,7 @@ public class GhostController : MonoBehaviour
     // --------------------------------- checks if tile is walkable
     bool IsWalkable(Vector2Int pos)
     {
-        if (pos.x <= leftEnd.x || pos.x <= rightEnd.x) return false;
+        if (pos.x <= leftEnd.x || pos.x >= rightEnd.x) return false;
         Vector3 world = grid.GetCellCenterWorld(new Vector3Int(pos.x, pos.y, 0));
         
         foreach (Tilemap map in tileMap)

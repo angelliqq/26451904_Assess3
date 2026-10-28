@@ -200,7 +200,7 @@ public class GhostManager : MonoBehaviour
         {
             if (ghosts[i] == null) continue;
             GhostController controller = ghosts[i].GetComponent<GhostController>();
-            
+            if (controller != null) controller.ResetToStart();
             ghosts[i].transform.position = startPositions[i];
             
             ghosts[i].Rebind();

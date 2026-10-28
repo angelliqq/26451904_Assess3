@@ -744,7 +744,11 @@ MonoBehaviour:
   gameOverTxt: {fileID: 660251839}
   pacStudent: {fileID: 1214233757}
   gameTimer: {fileID: 1544764093}
-  ghostBehaviour: []
+  ghostBehaviour:
+  - {fileID: 1743265208}
+  - {fileID: 310804785}
+  - {fileID: 1231757335}
+  - {fileID: 1114057011}
   button:
   - {fileID: 1406557467}
 --- !u!4 &45537982
@@ -3516,6 +3520,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &308481021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 308481022}
+  m_Layer: 0
+  m_Name: Top Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &308481022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308481021}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.96198, y: 0.3516302, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1726048658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &310107864
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,6 +3654,7 @@ GameObject:
   - component: {fileID: 310804783}
   - component: {fileID: 310804785}
   - component: {fileID: 310804786}
+  - component: {fileID: 310804787}
   m_Layer: 0
   m_Name: GhostOrange
   m_TagString: Ghost
@@ -3759,6 +3795,32 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.3
+--- !u!114 &310804787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310804782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2c05d03a9d7d844ad69856ae504c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostController
+  ghostNumber: 2
+  tileMap:
+  - {fileID: 1186556137}
+  - {fileID: 475796260}
+  - {fileID: 1970630668}
+  - {fileID: 1776364671}
+  tpLeft: {fileID: 450164903}
+  tpRight: {fileID: 2114951637}
+  pacStudent: {fileID: 1214233757}
+  ghostManager: {fileID: 773723591}
+  exitPath:
+  - {fileID: 1831034068}
+  - {fileID: 1945701803}
+  route: []
 --- !u!1 &317582672
 GameObject:
   m_ObjectHideFlags: 0
@@ -16419,7 +16481,6 @@ MonoBehaviour:
   ghostEatClip: {fileID: 8300000, guid: 620c37397eecd78438fcc4aeca1de063, type: 3}
   scaredTime: 10
   recoveryTime: 3
-  deadTime: 3
 --- !u!1 &782830383
 GameObject:
   m_ObjectHideFlags: 0
@@ -20828,6 +20889,7 @@ GameObject:
   - component: {fileID: 1114057010}
   - component: {fileID: 1114057011}
   - component: {fileID: 1114057012}
+  - component: {fileID: 1114057013}
   m_Layer: 0
   m_Name: GhostBlue
   m_TagString: Ghost
@@ -20968,6 +21030,32 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.3
+--- !u!114 &1114057013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114057007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2c05d03a9d7d844ad69856ae504c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostController
+  ghostNumber: 4
+  tileMap:
+  - {fileID: 1186556137}
+  - {fileID: 475796260}
+  - {fileID: 1970630668}
+  - {fileID: 1776364671}
+  tpLeft: {fileID: 450164903}
+  tpRight: {fileID: 2114951637}
+  pacStudent: {fileID: 1214233757}
+  ghostManager: {fileID: 773723591}
+  exitPath:
+  - {fileID: 1831034068}
+  - {fileID: 1945701803}
+  route: []
 --- !u!1 &1117465994
 GameObject:
   m_ObjectHideFlags: 0
@@ -21832,9 +21920,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1743265207}
-  - {fileID: 1114057009}
   - {fileID: 310804784}
   - {fileID: 1231757334}
+  - {fileID: 1114057009}
   - {fileID: 773723589}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24652,7 +24740,6 @@ MonoBehaviour:
   - {fileID: 179735386}
   TPRight: {fileID: 2114951637}
   TPLeft: {fileID: 450164903}
-  moveSpeed: 10
   movement: {fileID: 1214233759}
   movingClip: {fileID: 8300000, guid: bb34ca0850b9c8640a1a256b124fef54, type: 3}
   pelletClip: {fileID: 8300000, guid: 45166bdf53062b84a9f09cafeb4a8d5b, type: 3}
@@ -24672,6 +24759,7 @@ MonoBehaviour:
   deathState: Death
   deathDuration: 1.5
   gameOver: {fileID: 45537981}
+  MoveSpeed: 5
 --- !u!95 &1214233758
 Animator:
   serializedVersion: 7
@@ -29851,6 +29939,7 @@ GameObject:
   - component: {fileID: 1231757333}
   - component: {fileID: 1231757335}
   - component: {fileID: 1231757336}
+  - component: {fileID: 1231757337}
   m_Layer: 0
   m_Name: GhostPink
   m_TagString: Ghost
@@ -29991,6 +30080,32 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.3
+--- !u!114 &1231757337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231757332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2c05d03a9d7d844ad69856ae504c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostController
+  ghostNumber: 3
+  tileMap:
+  - {fileID: 1186556137}
+  - {fileID: 475796260}
+  - {fileID: 1970630668}
+  - {fileID: 1776364671}
+  tpLeft: {fileID: 450164903}
+  tpRight: {fileID: 2114951637}
+  pacStudent: {fileID: 1214233757}
+  ghostManager: {fileID: 773723591}
+  exitPath:
+  - {fileID: 1831034068}
+  - {fileID: 308481022}
+  route: []
 --- !u!1 &1237402590
 GameObject:
   m_ObjectHideFlags: 0
@@ -34529,7 +34644,11 @@ MonoBehaviour:
   introClip: {fileID: 8300000, guid: a56510e67f7f17b4d8e0221070998b79, type: 3}
   bgClip: {fileID: 8300000, guid: 5e88a6cd8fe5e06428d466559615f841, type: 3}
   pacStudent: {fileID: 1214233757}
-  ghostBehaviour: []
+  ghostBehaviour:
+  - {fileID: 1743265208}
+  - {fileID: 310804785}
+  - {fileID: 1231757335}
+  - {fileID: 1114057011}
   stopwatch: {fileID: 1815614309}
 --- !u!4 &1544764094
 Transform:
@@ -36631,6 +36750,40 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1726048657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1726048658}
+  m_Layer: 0
+  m_Name: Exits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1726048658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726048657}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.94285, y: -11.01126, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1831034068}
+  - {fileID: 308481022}
+  - {fileID: 1945701803}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1731519930
 GameObject:
   m_ObjectHideFlags: 0
@@ -36809,6 +36962,7 @@ GameObject:
   - component: {fileID: 1743265205}
   - component: {fileID: 1743265208}
   - component: {fileID: 1743265209}
+  - component: {fileID: 1743265210}
   m_Layer: 0
   m_Name: GhostRed
   m_TagString: Ghost
@@ -36949,6 +37103,32 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.3
+--- !u!114 &1743265210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743265204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2c05d03a9d7d844ad69856ae504c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostController
+  ghostNumber: 1
+  tileMap:
+  - {fileID: 1186556137}
+  - {fileID: 475796260}
+  - {fileID: 1970630668}
+  - {fileID: 1776364671}
+  tpLeft: {fileID: 450164903}
+  tpRight: {fileID: 2114951637}
+  pacStudent: {fileID: 1214233757}
+  ghostManager: {fileID: 773723591}
+  exitPath:
+  - {fileID: 1831034068}
+  - {fileID: 308481022}
+  route: []
 --- !u!1 &1757372102
 GameObject:
   m_ObjectHideFlags: 0
@@ -40265,6 +40445,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1831034067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831034068}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1831034068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831034067}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.96198, y: -1.6483698, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1726048658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833581435
 GameObject:
   m_ObjectHideFlags: 0
@@ -41796,6 +42007,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1945701802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1945701803}
+  m_Layer: 0
+  m_Name: Bottom Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1945701803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945701802}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.96198, y: -3.6483698, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1726048658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1954022742
 GameObject:
   m_ObjectHideFlags: 0
@@ -45958,3 +46200,4 @@ SceneRoots:
   - {fileID: 1544764094}
   - {fileID: 45537982}
   - {fileID: 612888037}
+  - {fileID: 1726048658}
