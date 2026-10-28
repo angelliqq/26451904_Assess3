@@ -16470,9 +16470,9 @@ MonoBehaviour:
   - Scared Up
   - Scared Right
   recoveringState:
-  - Recover Down
-  - Left recover
   - Up recover
+  - Left recover
+  - Down recover
   - Right recover
   normalStates:
   - Up
