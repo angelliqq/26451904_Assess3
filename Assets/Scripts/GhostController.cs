@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -67,6 +68,10 @@ public class GhostController : MonoBehaviour
     private int routeIndex;
     private bool routeNeedsRefresh = true;
 
+    
+    // animation stuff
+    private int facingIndex = 3;
+    private string currentAnimation;
 
     private void Awake()
     {
@@ -76,8 +81,27 @@ public class GhostController : MonoBehaviour
         
         leftEnd = WorldToCell(tpLeft.position);
         rightEnd = WorldToCell(tpRight.position);
+
+        UpdateAnimation();
     }
     
+    // --------------------------------- animation helpers!!! shouldve did these first..
+    void OnEnable()
+    {
+        SetAnimatorSpeed(1f);
+    }
+
+    void OnDisable()
+    {
+        SetAnimatorSpeed(0f);
+    }
+
+    void SetAnimatorSpeed(float speed)
+    {
+        if (animator == null) animator = GetComponent<Animator>();
+        if (animator != null) animator.speed = speed;
+    }
+
     // --------------------------------- update
     void Update()
     {
@@ -89,6 +113,8 @@ public class GhostController : MonoBehaviour
             case Mode.Roam: UpdateRoam(); break;
             case Mode.Dead: UpdateDead(); break;
         }
+        
+        UpdateAnimation();
     }
 
     // --------------------------------- death for ghost
@@ -106,6 +132,8 @@ public class GhostController : MonoBehaviour
         routeIndex = 0;
         routeNeedsRefresh = true;
         isLerping = false;
+        facingIndex = 3;
+        currentAnimation = null;
         SetPost(startPosition);
     }
 
@@ -119,6 +147,16 @@ public class GhostController : MonoBehaviour
         return normal;
     }
 
+    // --------------------------------- animation updater
+    void UpdateAnimation()
+    {
+        if (animator == null || ghostManager == null) return;
+        string state = mode == Mode.Dead ? ghostManager.DeadAnimation : ghostManager.GetAnimation(facingIndex);
+        if (string.IsNullOrEmpty(state) || state == currentAnimation) return;
+        currentAnimation = state;
+        animator.Play(state);
+    }
+    
     // --------------------------------- updates ghost spawn
     void UpdateSpawn()
     {
@@ -128,6 +166,10 @@ public class GhostController : MonoBehaviour
             return;
         }
         Vector2 goal = exitPath[pathIndex].position;
+        
+        Vector2Int move = ToAxis(goal - (Vector2)transform.position);
+        if (move != Vector2Int.zero) facingIndex = FacingIndex(move);
+        
         SetPost(Vector2.MoveTowards(transform.position, goal, CurrentSpeed() * Time.deltaTime));
         if (((Vector2)transform.position - goal).sqrMagnitude < 0.000001f)
         {
@@ -190,6 +232,7 @@ public class GhostController : MonoBehaviour
         if (options.Count == 0) return;
         Vector2Int dir = PickDirections(options);
         lastDirection = dir;
+        facingIndex = FacingIndex(dir);
         targetTile = currentTile + dir;
         targetPosition = CellToWorld(targetTile);
         isLerping = true;
@@ -325,6 +368,15 @@ public class GhostController : MonoBehaviour
     Vector2Int RandomOf(List<Vector2Int> list)
     {
         return list[UnityEngine.Random.Range(0, list.Count)];
+    }
+    
+    // facing pos
+    static int FacingIndex(Vector2Int d)
+    {
+        if (d == Vector2Int.up) return 0;
+        if (d == Vector2Int.left) return 1;
+        if (d == Vector2Int.down) return 2;
+        return 3;
     }
 
     static Vector2Int ToAxis(Vector2 v)

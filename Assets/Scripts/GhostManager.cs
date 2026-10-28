@@ -9,8 +9,9 @@ public class GhostManager : MonoBehaviour
     // PS im using headers to sort out eveything since theres too much stuff!
     
     // --------------------------------- ANIMATIONS
-    [SerializeField] private string scared = "Scared Left";
-    [SerializeField] private string recoveringState= "Right recover";
+    [SerializeField] private string[] scaredStates = new string[4];
+    [SerializeField] private string[] recoveringState = new string[4];
+    [SerializeField] private string[] normalStates = new string[4];
     [SerializeField] private string dead = "Dead";
     
     [SerializeField] private Animator[] ghosts;
@@ -39,7 +40,17 @@ public class GhostManager : MonoBehaviour
     private readonly HashSet<Animator> deadGosts = new HashSet<Animator>();
     
     public bool IsScared => scaredActive;
-    
+    public bool IsRecovering => scaredActive && remaining <= recoveryTime;
+    public string DeadAnimation => dead;
+
+    public string GetAnimation(int facing)
+    {
+        string[] set = normalStates;
+        if (IsRecovering) set = recoveringState;
+        else if (scaredActive) set = scaredStates;
+        if (set == null || facing < 0 || facing >= set.Length) return "";
+        return set[facing];
+    }
     
     // --------------------------------- is ghost dead?
     public bool IsGhostDead(Animator ghost)
@@ -73,7 +84,6 @@ public class GhostManager : MonoBehaviour
         remaining = scaredTime;
         
         SetTimerVisible(true);
-        SetGhostState(scared);
         UpdateMusic();
 
         bool recovering = false;
@@ -81,11 +91,6 @@ public class GhostManager : MonoBehaviour
         while (remaining > 0f)
         {
             if (timerTxt != null) timerTxt.text = Mathf.CeilToInt(remaining).ToString();
-            if (!recovering && remaining <= recoveryTime)
-            {
-                recovering = true;
-                SetGhostState(recoveringState);
-            }
             remaining -= Time.deltaTime;
             yield return null;
         }
@@ -212,20 +217,6 @@ public class GhostManager : MonoBehaviour
     public void ReviveGhost(Animator ghost)
     {
         deadGosts.Remove(ghost);
-
-        if (!scaredActive)
-        {
-            ghost.Rebind();
-            ghost.Update(0f);
-        }
-        else if (remaining > recoveryTime)
-        {
-            ghost.Play(scared);
-        }
-        else
-        {
-            ghost.Play(recoveringState);
-        }
         UpdateMusic();
     }
 
