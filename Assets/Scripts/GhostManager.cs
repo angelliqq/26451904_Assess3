@@ -1,9 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Tilemaps;
 
 public class GhostManager : MonoBehaviour
 {
@@ -39,27 +37,8 @@ public class GhostManager : MonoBehaviour
     private int[] savedStates;
     private Vector3[] startPositions;
     private readonly HashSet<Animator> deadGosts = new HashSet<Animator>();
-
-    // --------------------------------- ghost movement
-    [SerializeField] private PacStudentController pacStudent;
-    [SerializeField] private Tilemap[] tilemaps;
-    [SerializeField] private Transform tpLeft;
-    [SerializeField] private Transform tpRight;
-    [SerializeField] private Collider2D spawn;
-    [SerializeField] private Transform exitTop;
-    [SerializeField] private Transform exitBottom;
-    [SerializeField] private Transform[] ghost4Route;
-
-    private Grid grid;
-    private Vector2Int leftEnd;
-    private Vector2Int rightEnd;
     
-    // --------------------------------- bool section
     public bool IsScared => scaredActive;
-    public bool hasRoute => ghost4Route != null && ghost4Route.Length > 0;
-    public bool pacDying => pacStudent != null && pacStudent.IsDying;
-    public float pacSpeed => pacStudent != null ? pacStudent.MoveSpeed : 5f;
-    public Vector2 pacPosition => pacStudent != null ? (Vector2)pacStudent.transform.position : Vector2.zero;
     
     
     // --------------------------------- is ghost dead?
@@ -68,38 +47,15 @@ public class GhostManager : MonoBehaviour
         return deadGosts.Contains(ghost);
     }
 
-    void Awake()
-    {
-        grid = tilemaps[0].layoutGrid;
-        leftEnd = WorldToCell(tpLeft.position);
-        rightEnd = WorldToCell(tpRight.position);
-
-        startPositions = new Vector3[ghosts.Length];
-        
-        for (int i = 0; i < ghosts.Length; i++)
-        {
-            if (ghosts[i] != null) continue;
-            startPositions[i] = CellToWorld(WorldToCell(ghosts[i].transform.position));
-            ghosts[i].transform.position = startPositions[i];
-        }
-    }
-
     // --------------------------------- start in general
     void Start()
     {
         SetTimerVisible(false);
-    }
-
-    // --------------------------------- TILEMAP SETUP --- code from pacstudentcontroller
-    Vector2Int WorldToCell(Vector2 worldPos)
-    {
-        Vector3Int cell = grid.WorldToCell(worldPos);
-        return new Vector2Int(cell.x, cell.y);
-    }
-
-    Vector2 CellToWorld(Vector2Int cell)
-    {
-        return grid.GetCellCenterWorld(new Vector3Int(cell.x, cell.y, 0));
+        startPositions = new Vector3[ghosts.Length];
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            if (ghosts[i] != null) startPositions[i] = ghosts[i].transform.position;
+        }
     }
     
     // --------------------------------- Starting scared state
@@ -148,6 +104,26 @@ public class GhostManager : MonoBehaviour
         UpdateMusic();
     }
 
+    
+    // --------------------------------- ghost eaten + sound clip when eaten
+    public void EatGhost(Animator ghost)
+    {
+        if (ghost == null || deadGosts.Contains(ghost)) return;
+        deadGosts.Add(ghost);
+        ghost.Play(dead);
+
+        if (ghostEatClip != null && Camera.main != null)
+        {
+            AudioSource.PlayClipAtPoint(ghostEatClip, Camera.main.transform.position);
+        }
+        
+        GhostController controller = ghost.GetComponent<GhostController>();
+        if (controller != null) controller.Die();
+        
+        UpdateMusic();
+    }
+    
+    
     // --------------------------------- applying the animated state
     void SetGhostState(string state)
     {
@@ -223,35 +199,18 @@ public class GhostManager : MonoBehaviour
         for (int i = 0; i < ghosts.Length; i++)
         {
             if (ghosts[i] == null) continue;
+            GhostController controller = ghosts[i].GetComponent<GhostController>();
+            
             ghosts[i].transform.position = startPositions[i];
+            
             ghosts[i].Rebind();
             ghosts[i].Update(0f);
-            
-            //new
-            GhostController controller = ghosts[i].GetComponent<GhostController>();
-            if (controller != null) controller.ResetGhost();
         }
-    }
-
-    // --------------------------------- ghost eaten + sound clip when eaten
-    public void EatGhost(Animator ghost)
-    {
-        if (ghost == null || deadGosts.Contains(ghost)) return;
-        deadGosts.Add(ghost);
-        ghost.Play("Dead");
-
-        if (ghostEatClip != null && Camera.main != null)
-        {
-            AudioSource.PlayClipAtPoint(ghostEatClip, Camera.main.transform.position);
-        }
-        UpdateMusic();
     }
 
     // --------------------------------- respawn ghost (old rountine)
     public void ReviveGhost(Animator ghost)
     {
-        if (ghost == null) return;
-        
         deadGosts.Remove(ghost);
 
         if (!scaredActive)
@@ -282,38 +241,5 @@ public class GhostManager : MonoBehaviour
     {
         return startPositions[index];
     }
-
-    // --------------------------------- exit (yellow lines)
-    public Vector2 ExitFor(int ghostNumber)
-    {
-        Transform exit = (ghostNumber == 1 || ghostNumber == 3) ? exitTop : exitBottom;
-        return CellToWorld(WorldToCell(exit.position));
-    }
-
-    // --------------------------------- waypoints
-    public List<Vector2> RoutePoints()
-    {
-        List<Vector2> points = new List<Vector2>();
-        foreach (Transform t in ghost4Route)
-        {
-            if (t != null) points.Add(CellToWorld(WorldToCell(t.position)));
-        }
-
-        return points;
-    }
-
-    // --------------------------------- isWalkable pacstudent but for ghosts
-    public bool IsGhostWalkable(Vector2Int cell)
-    {
-        if (cell.x < leftEnd.x || cell.x > rightEnd.x) return false;
-        Vector3 world = grid.GetCellCenterWorld(new Vector3Int(cell.x, cell.y, 0));
-        
-        foreach (Tilemap map in tilemaps)
-        {
-            if (map == null) continue;
-            if (map.GetColliderType(map.WorldToCell(world)) != Tile.ColliderType.None) return false;
-        }
-
-        return true;
-    }
+    
 }

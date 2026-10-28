@@ -1,8 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GhostController : MonoBehaviour
 {
+
+    [SerializeField] private int ghostNumber = 1;
+    
+    [SerializeField] private Tilemap[] tileMap;
+    [SerializeField] private Transform tpLeft;
+    [SerializeField] private Transform tpRight;
+
+    [SerializeField] private PacStudentController pacStudent;
+    [SerializeField] private GhostManager ghostManager;
+
+    [SerializeField] private Transform[] exitPath;
+    [SerializeField] private Transform[] route;
+    
+    
+    enum Mode
+    {
+        Spawn,
+        Roam,
+        Dead,
+    }
+    
+    
     void Start()
     {
         
@@ -13,68 +36,5 @@ public class GhostController : MonoBehaviour
         
     }
 
-    public void ResetGhost()
-    {
-        
-    }
 
-    float CurrentSpeed()
-    {
-        
-    }
-
-    void MoveDead()
-    {
-        
-    }
-
-    void BeginLeaving()
-    {
-        
-    }
-    
-    bool FollowWayPoints()
-    {
-
-    }
-
-    void FinishWayPoints()
-    {
-        
-    }
-
-    void Roam()
-    {
-        
-    }
-
-    void ChooseNext()
-    {
-        
-    }
-
-    int RandomChoice()
-    {
-        
-    }
-
-    int ClockwiseChoice()
-    {
-        
-    }
-
-    List<int> ValidDirections()
-    {
-        
-    }
-
-    int ReverseDirection()
-    {
-        
-    }
-
-    static int DirectionIndex(Vector2 delta)
-    {
-        
-    }
 }
